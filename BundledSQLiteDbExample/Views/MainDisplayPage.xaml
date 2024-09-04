@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:BundledSQLiteDbExample.Models"
+             x:Class="BundledSQLiteDbExample.Views.MainDisplayPage">
+
+    <ContentPage.Content>
+        <StackLayout Padding="5,5,0,5">
+            <Frame CornerRadius="0">
+                <Label Text="Employees List, Bundled Db Example" HorizontalTextAlignment="Center" FontSize="30" />
+            </Frame>
+            <ListView x:Name="listView" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                                <Frame>
+                                    <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                                        <Label x:Name="DisplayNum" FontSize="Medium">
+                                            <Label.Text HorizontalOptions="Center" LineBreakMode="WordWrap" >
+                                                <MultiBinding StringFormat="{} {2}    {1}   {0}">
+                                                    <Binding Path="FirstName" />
+                                                    <Binding Path="LastName" />
+                                                    <Binding Path="Emp_ID" />
+                                                </MultiBinding>
+                                            </Label.Text>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
